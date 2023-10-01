@@ -18,6 +18,7 @@ public class Options {
     int durationLimit;
     Boolean useFrontCamera = false;
     String mediaType;
+    Boolean forceOldAndroidPhotoPicker = false;
     String[] restrictMimeTypes;
 
     Options(ReadableMap options) {
@@ -28,6 +29,7 @@ public class Options {
         selectionLimit = options.getInt("selectionLimit");
         includeBase64 = options.getBoolean("includeBase64");
         includeExtra = options.getBoolean("includeExtra");
+        forceOldAndroidPhotoPicker = options.getBoolean("forceOldAndroidPhotoPicker");
 
         String videoQualityString = options.getString("videoQuality");
         if (!TextUtils.isEmpty(videoQualityString) && !videoQualityString.toLowerCase().equals("high")) {
