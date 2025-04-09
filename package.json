@@ -1,7 +1,7 @@
 {
-  "name": "react-native-image-picker",
-  "version": "8.2.0",
-  "description": "A React Native module that allows you to use native UI to select media from the device library or directly from the camera",
+  "name": "@cardbrother/react-native-image-picker",
+  "version": "7.2.5",
+  "description": "A React Native module that allows you to use native UI to select media from the device library or directly from the camera, fork from Johan du Toit (Johan-dutoit)",
   "react-native": "src/index.ts",
   "main": "src/index.ts",
   "types": "lib/typescript/index.d.ts",
@@ -13,7 +13,7 @@
     "/src",
     "/lib"
   ],
-  "author": "Johan du Toit (Johan-dutoit)",
+  "author": "guotingchao",
   "homepage": "https://github.com/react-native-image-picker/react-native-image-picker",
   "license": "MIT",
   "scripts": {
