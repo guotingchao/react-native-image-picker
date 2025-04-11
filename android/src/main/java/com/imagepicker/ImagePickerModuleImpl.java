@@ -185,8 +185,10 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
                 String chooserTitle = this.options.chooserTitle != null ? this.options.chooserTitle : "Import Photos From";
                 Intent chooserIntent = Intent.createChooser(pickIntent, chooserTitle);
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{libraryIntent});
+                chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 currentActivity.startActivityForResult(chooserIntent, requestCode);
             } else {
+                libraryIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 currentActivity.startActivityForResult(libraryIntent, requestCode);
             }
         } catch (ActivityNotFoundException e) {

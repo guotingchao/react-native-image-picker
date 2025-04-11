@@ -1,6 +1,6 @@
 {
   "name": "@cardbrother/react-native-image-picker",
-  "version": "7.2.5",
+  "version": "7.2.6",
   "description": "A React Native module that allows you to use native UI to select media from the device library or directly from the camera, fork from Johan du Toit (Johan-dutoit)",
   "react-native": "src/index.ts",
   "main": "src/index.ts",
@@ -25,6 +25,7 @@
   "keywords": [
     "react-native",
     "react-native-image-picker",
+    "@cardbrother/react-native-image-picker",
     "react",
     "native",
     "image",
