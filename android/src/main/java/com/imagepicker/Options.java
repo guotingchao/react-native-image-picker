@@ -30,7 +30,7 @@ public class Options {
         selectionLimit = options.getInt("selectionLimit");
         includeBase64 = options.getBoolean("includeBase64");
         includeExtra = options.getBoolean("includeExtra");
-        forceOldAndroidPhotoPicker = options.getBoolean("forceOldAndroidPhotoPicker");
+        forceOldAndroidPhotoPicker = options.hasKey("forceOldAndroidPhotoPicker") ? options.getBoolean("forceOldAndroidPhotoPicker") : false;
         chooserTitle = options.getString("chooserTitle");
 
         String videoQualityString = options.getString("videoQuality");
