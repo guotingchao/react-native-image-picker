@@ -20,7 +20,9 @@
     "start": "react-native start",
     "example": "yarn --cwd example",
     "prepare": "bob build",
-    "ci:publish": "yarn semantic-release"
+    "ci:publish": "yarn semantic-release",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "keywords": [
     "react-native",
@@ -61,5 +63,10 @@
     "android": {
       "javaPackageName": "com.imagepicker"
     }
+  },
+  "dependencies": {
+    "expo": "~52.0.43",
+    "react": "18.3.1",
+    "react-native": "0.76.9"
   }
 }
