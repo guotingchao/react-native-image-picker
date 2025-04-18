@@ -164,6 +164,7 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
 
         if(this.options.restrictMimeTypes.length > 0) {
             libraryIntent.putExtra(Intent.EXTRA_MIME_TYPES, this.options.restrictMimeTypes);
+        }
         if (isPhoto) {
             libraryIntent.setType("image/*");
             pickIntent.setType("image/*");
