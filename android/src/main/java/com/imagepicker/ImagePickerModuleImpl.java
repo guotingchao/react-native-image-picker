@@ -142,6 +142,7 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
                 libraryIntent.addCategory(Intent.CATEGORY_OPENABLE);
             }
         } else {
+            libraryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES);
             mediaType = (PickVisualMedia.VisualMediaType) PickVisualMedia.ImageAndVideo.INSTANCE;
         }
 
