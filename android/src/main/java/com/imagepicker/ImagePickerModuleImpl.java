@@ -30,7 +30,6 @@ import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.activity.result.contract.ActivityResultContracts.PickMultipleVisualMedia;
 
 public class ImagePickerModuleImpl implements ActivityEventListener {
-
     static final String NAME = "ImagePicker";
 
     // Public to let consuming apps hook into the image picker response
@@ -164,7 +163,6 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
 
         if(this.options.restrictMimeTypes.length > 0) {
             libraryIntent.putExtra(Intent.EXTRA_MIME_TYPES, this.options.restrictMimeTypes);
-        }
         if (isPhoto) {
             libraryIntent.setType("image/*");
             pickIntent.setType("image/*");
@@ -187,10 +185,8 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
                 String chooserTitle = this.options.chooserTitle != null ? this.options.chooserTitle : "Import Photos From";
                 Intent chooserIntent = Intent.createChooser(pickIntent, chooserTitle);
                 chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{libraryIntent});
-                chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 currentActivity.startActivityForResult(chooserIntent, requestCode);
             } else {
-                libraryIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
                 currentActivity.startActivityForResult(libraryIntent, requestCode);
             }
         } catch (ActivityNotFoundException e) {
@@ -201,6 +197,7 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
 
     void onAssetsObtained(List<Uri> fileUris) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
+
         executor.submit(() -> {
             try {
                 callback.invoke(getResponseMap(fileUris, options, reactContext));
@@ -213,7 +210,8 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
     }
 
     @Override
-    public void onActivityResult (Activity activity, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+
         // onActivityResult is called even when ActivityNotFoundException occurs
         if (!isValidRequestCode(requestCode) || (this.callback == null)) {
             return;
@@ -258,6 +256,5 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
 
     @Override
     public void onNewIntent(Intent intent) {
-
     }
 }
